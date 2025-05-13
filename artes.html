@@ -16,6 +16,7 @@
       height: 100vh;
       flex-direction: column;
       text-align: center;
+      overflow: hidden;
     }
 
     .container {
@@ -34,7 +35,7 @@
         #fff 200deg, #000 220deg, #fff 240deg, #000 260deg, #fff 280deg,
         #000 300deg, #fff 320deg, #000 340deg, #fff 360deg
       );
-      transition: transform 0.1s linear;
+      transition: transform 0.05s linear;
     }
   </style>
 </head>
@@ -42,11 +43,12 @@
   <div class="container">
     <div class="illusion" id="illusion"></div>
     <h1>Ilusão de Ótica</h1>
-    <p>Mova o mouse sobre a imagem e veja a mágica acontecer!</p>
+    <p>Mova o mouse e veja a mágica acontecer!</p>
   </div>
 
   <script>
     const illusion = document.getElementById('illusion');
+    let rotation = 0;
 
     document.addEventListener('mousemove', (e) => {
       const centerX = window.innerWidth / 2;
@@ -55,9 +57,12 @@
       const deltaX = e.clientX - centerX;
       const deltaY = e.clientY - centerY;
 
-      const angle = Math.atan2(deltaY, deltaX) * 10;
+      // Calcula a distância do movimento para girar suavemente
+      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      const direction = deltaX > 0 ? 1 : -1;
 
-      illusion.style.transform = `rotate(${angle}deg)`;
+      rotation += direction * distance * 0.005;
+      illusion.style.transform = `rotate(${rotation}deg)`;
     });
   </script>
 </body>
