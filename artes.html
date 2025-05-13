@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ilusão de Ótica - Arte Cinética</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="illusion" id="illusion"></div>
+    <h1>Ilusão de Ótica</h1>
+    <p>Mova o mouse sobre a imagem e veja a mágica acontecer!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+style.css
+css
+Copiar
+Editar
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illusion {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: conic-gradient(#fff 0deg, #000 20deg, #fff 40deg, #000 60deg, #fff 80deg, #000 100deg, #fff 120deg, #000 140deg, #fff 160deg, #000 180deg, #fff 200deg, #000 220deg, #fff 240deg, #000 260deg, #fff 280deg, #000 300deg, #fff 320deg, #000 340deg, #fff 360deg);
+  transition: transform 0.1s linear;
+}
